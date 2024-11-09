@@ -1,10 +1,12 @@
 address_book={}
+
 def add_contact(address_book,name,phone,email,address):
     if name in address_book:
         print(f"Contact '{name}' already exists.")
     else:
         address_book[name] = {"phone": phone, "email": email, "address": address}
         print(f"Contact {name} added successfully.")
+
 def update_contact(address_book, name, phone=None, email=None, address=None):
     if name in address_book:
         if phone:
@@ -16,18 +18,21 @@ def update_contact(address_book, name, phone=None, email=None, address=None):
         print(f"Contact '{name}' updated successfully.")
     else:
         print(f"Contact '{name}' not found.")
+
 def search_contact(address_book, name):
     contact = address_book.get(name)
     if contact:
         return f"{name}: Phone={contact['phone']}, Email={contact['email']}, Address={contact['address']}"
     else:
         return f"Contact '{name}' not found."
+    
 def display_contacts(address_book):
     if address_book:
         for name, details in address_book.items():
             print(f"{name}: Phone={details['phone']}, Email={details['email']},Address={details['address']}")
     else:
         print("Address book is empty.")
+
 while True:
     print("Address book Menu:")
     print("1.Add contact:")
@@ -58,3 +63,5 @@ while True:
         break
     else:
         print("Invalid choice")
+
+
